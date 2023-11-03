@@ -101,7 +101,7 @@ Lisää julkinen avain GitHubiin:
 
 Näin pystyt käyttämään GitHubia ilman salasanan syöttämistä koneelta, josta juuri luodun avaimen salainen pari löytyy
 
-Jos et ole jo aiemmin niin tehnyt, konfiguroi nimesi ja email-osoitteesi paikallisen koneesi git:iin antamalla komennot:
+Jos et ole jo aiemmin niin tehnyt, konfiguroi nimesi ja email-osoitteesi paikallisen koneesi Git:iin antamalla komennot:
 
 ```bash
 git config --global user.name "Your Name"
@@ -145,9 +145,9 @@ Olet jo todennäköisesti käyttänyt Gitiä aiemmilla kursseilla. Tässä teht�
 - `git reset HEAD`
 
 - Jos et vielä hallitse komentoja, käy läpi kurssin Ohjelmistotekniikka
-  [Git-tutoriaali](https://ohjelmistotekniikka-hy.github.io/python/viikko1#versionhallinta). Pelkän lukemisen sijaan kannattanee myös tehdä itse tutoriaalin git-operaatiot.
+  [Git-tutoriaali](https://ohjelmistotekniikka-hy.github.io/python/viikko1#versionhallinta-tee-n%C3%A4m%C3%A4-harjoitukset-jos-ei-tunnu-tutulta). Pelkän lukemisen sijaan kannattanee myös tehdä itse tutoriaalin Git-operaatiot.
 
-Lisää git-ohjeita löytyy runsaasti internetistä, esim:
+Lisää Git-ohjeita löytyy runsaasti internetistä, esim:
 
 - [Pro Git -opas](http://git-scm.com/book), kannattaa lukea näin alkuun luku 2
 - [Githubin helpit](https://help.github.com/articles/)
@@ -164,11 +164,11 @@ Lisää git-ohjeita löytyy runsaasti internetistä, esim:
 - Tee _.gitignore_-tiedosto, jossa määrittelet, että repositorion juurihakemistossa olevat tiedostot, joiden pääte on _tmp_, ja hakemistot joiden nimi on <i>\_\_pycache\_\_</i> ja <i>.pytest_cache</i> ignoroidaan
   - Toinen ignorattava hakemisto on siis <i>.pytest_cache</i>, jonka nimi alkaa pisteellä
   - Pistealkuiset hakemistot ja tiedostot eivät näy oletusarvoisesti komennon `ls` listauksissa, saat ne näkyville komennolla `ls -a`
-- Lisää tmp-päätteisiä tiedostoja hakemistoon ja varmista että git jättää ne huomioimatta
+- Lisää tmp-päätteisiä tiedostoja hakemistoon ja varmista että Git jättää ne huomioimatta
   - Saat asian tarkastettua komennolla `git status`
 - Lisää myös hakemisto nimeltä <i>\_\_pycache\_\_</i> ja hakemiston sisälle joku tiedosto. Varmista, että hakemisto sisältöineen ei mene versionhallinnan alaisuuteen
 - Lisää ja commitoi _.gitignore_-tiedosto repositorioosi
-- Seuraavat kohdat puhuvat gitin staging-alueesta. Jos et tiedä mistä on kysymys, selvitä mistä kyse. Asia kyllä selviää ylle linkitetyistä ohjeista
+- Seuraavat kohdat puhuvat Gitin staging-alueesta. Jos et tiedä mistä on kysymys, selvitä mistä kyse. Asia kyllä selviää ylle linkitetyistä ohjeista
 - Tee muutos johonkin tiedostoon. Älä lisää tiedostoa "staging"-alueelle
   - Peru muutos (`git status`-komento antaa vihjeen miten tämä tapahtuu)
 - Tee muutos ja lisää tiedosto "staging"-alueelle, varmista että muutosta ei enää näy tiedostossa
@@ -202,7 +202,7 @@ Jos työskennellään useammalta koneelta, on GitHubissa olevasta repositoriosta
 
 Luodaan nyt harjoituksen vuoksi paikalliselle koneelle repositoriosta toinen klooni:
 
-- Mene komentoriville ja esim. kotihakemistoosi (tai johonkin paikkaan, joka ei ole git-repositorio)
+- Mene komentoriville ja esim. kotihakemistoosi (tai johonkin paikkaan, joka ei ole Git-repositorio)
 - Anna komento `git clone git@github.com:githubtunnus/repositorionNimi.git nimiKloonille`
   - _githubtunnus_ ja _repositorionNimi_ selviävät GitHubista repositoriosi tehtävän 2 toisen kuvan osoittamasta paikasta
   - _nimiKloonille_ tulee olemaan kloonatun repositorion nimi, varmista että annat nimen, jonka nimistä tiedostoa tai hakemistoa ei jo ole kansiossa
@@ -223,10 +223,10 @@ Valmistaudutaan seuraavaan tehtävään siivoamalla repositoriostamme ylimäär�
 
 - Mene repositoriosi alkuperäiseen, tehtävässä 2 tekemääsi klooniin
   - Voit poistaa tehtävää 5 varten tekemäsi harjoituskloonin
-- Poista repositorioistasi kaikki hakemistot sekä muut tiedostot paitsi _.gitignore_ ja _README.md_
+- Poista repositorioistasi kaikki hakemistot sekä muut tiedostot paitsi _.git_, _.gitignore_ ja _README.md_
 - Committaa muutokset
-  - Varmista komennolla _git status_ että kaikki muutokset ovat versionhallinnassa, eli että git ei ilmoita joidenkin tiedostojen olevan _Changes not staged for commit_
-  - Joudut ehkä kertaamaan tehtävän 3 linkittämistä tutoriaaleista sitä miten tiedostojen poistaminen gitistä tapahtuu
+  - Varmista komennolla _git status_ että kaikki muutokset ovat versionhallinnassa, eli että Git ei ilmoita joidenkin tiedostojen olevan _Changes not staged for commit_
+  - Joudut ehkä kertaamaan tehtävän 3 linkittämistä tutoriaaleista sitä miten tiedostojen poistaminen Gitistä tapahtuu
 - Pushaa muutokset GitHubiin. Katso selaimella, että GitHubissa kaikki on ajan tasalla, eli että repositoriossa ei ole mitään muuta kuin tiedostot _.gitignore_ ja _README.md_
 
 Haetaan sitten seuraavissa tehtävissä käytettävä koodi:
@@ -280,7 +280,9 @@ Jotta samalla tietokoneella olevien projektien riippuvuuksissa ei syntyisi risti
 
 Ohjelmakoodin editointi kannattaa tehdä järkevällä editorilla, esim. Visual Studio Codella, mutta Poetry-komentojen suorittaminen onnistuu helpoiten komentoriviltä. 
 
-Ennen siirtymistä tehtävien pariin, ja et ole aiemmin Poetryä käyttänyt, tutustu Poetryn asennus- ja käyttöohjeisiin lukemalla [tämä dokumentti](https://ohjelmistotekniikka-hy.github.io/python/viikko2#poetry-ja-riippuvuuksien-hallinta). Kurssilla käytetään Poetryn versiota 1.6.1. Jos koneellasi on vanhempi versio, se on syytä päivittää.
+{% include no_pip.md %}
+
+Ennen siirtymistä tehtävien pariin, ja et ole aiemmin Poetryä käyttänyt, tutustu Poetryn asennus- ja käyttöohjeisiin lukemalla [tämä dokumentti](https://ohjelmistotuotanto-hy.github.io/poetry). Kurssilla käytetään Poetryn versiota 1.6.1. Jos koneellasi on vanhempi versio, se on syytä päivittää.
 
 **Tee nyt seuraavat toimenpiteet**.
 
@@ -322,8 +324,6 @@ Polku tulee Macilla muuttaa (todennäköisesti) muotoon
 
 Oikea polku kannattaa varmistaa komennolla `which python3`.
 
-{% include no_pip.md %}
-
 ### 8. Unittest
 
 Ohjelmistokehityksen ehkä tärkein vaihe on laadunvarmistus, laadunvarmistuksen tärkein keino taas on testaus, joka on syytä automatisoida mahdollisimman pitkälle, sillä ohjelmistoja joudutaan testaamaan paljon. Erityisesti iteratiivisessa/ketterässä ohjelmistokehityksessä samat testit on suoritettava uudelleen aina ohjelman muuttuessa.
@@ -337,7 +337,7 @@ Muista, että testit voi suorittaa projektin juurihakemistossa komennolla `poetr
 - Täydennä varasto-projektin testejä siten, että luokan `Varasto` testien haarautumakattavuudeksi (branch coverage) tulee 100%
   - Joudut huomioimaan ainakin tapaukset, joissa varastoon yritetään laittaa liikaa tavaraa ja varastosta yritetään ottaa enemmän kuin siellä on
   - Edellinenkään ei vielä riitä
-- Testauksen rivikattavuuden saat selville [coverage](https://coverage.readthedocs.io/en/coverage-5.3/)-työkalun avulla. Tutustu työkaluun lukemalla [Coverage-ohje](http://localhost:4000/unittest#onko-jo-testattu-tarpeeksi-testauskattavuus)
+- Testauksen rivikattavuuden saat selville [coverage](https://coverage.readthedocs.io/en/coverage-5.3/)-työkalun avulla. Tutustu työkaluun lukemalla [Coverage-ohje](/unittest#onko-jo-testattu-tarpeeksi-testauskattavuus)
 - Ota työkalu projektissasi käyttöön asentamalla se projektin _kehityksen aikaiseksi riippuvuudeksi_ komennolla:
 
 ```bash
@@ -579,7 +579,7 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 
 Tulet todennäköisesti törmäämään vastaavaan virheeseen usein. Syynä virheelle on se, että yrität pushata muutoksia GitHubiin vaikka GitHub on "edellä" paikallista repositorioasi (ts. sinne lisättiin tiedosto _README.md_).
 
-Ongelma ratkeaa seuraavasti. Tee ensin komento `git pull`. Saat gitiltä pitkän valitusviestin:
+Ongelma ratkeaa seuraavasti. Tee ensin komento `git pull`. Saat Gitiltä pitkän valitusviestin:
 
 ```
 remote: Enumerating objects: 5, done.
@@ -602,13 +602,13 @@ hint: or --ff-only on the command line to override the configured default per
 hint: invocation.
 ```
 
-Käytännössä git haluaa tietää minkälaisella strategialla paikallisen ja etärepositoriosi koodi tulisi yhdistää. Vaihtoehdoista kannattanee valita keskimäinen, eli anna komentorivillä komento
+Käytännössä Git haluaa tietää minkälaisella strategialla paikallisen ja etärepositoriosi koodi tulisi yhdistää. Vaihtoehdoista kannattanee valita keskimäinen, eli anna komentorivillä komento
 
 ```
 git config pull.rebase true 
 ```
 
-Käytännössä valittu vaihtoehto tarkoittaa sitä, että git suorittaa uudet lokaalit commitit etärepositoriossa olevien committien perään.
+Käytännössä valittu vaihtoehto tarkoittaa sitä, että Git suorittaa uudet lokaalit commitit etärepositoriossa olevien committien perään.
 
 Voit nyt pullata koodin uudelleen komennolla `git pull`. Komento  `git push` onnistuu nyt. Jatkossa vastaavista tilanteista selviää komennoilla `git pull` ja `git push`.
 
@@ -627,7 +627,7 @@ Saatat joutua odottamaan hetken, ennen kuin Codecov löytää repositoriosi. On 
 
 ![]({{ "/images/lh1-codecov.png" | absolute_url }})
 
-Samme muodostettua Codecovin ymmärtämän testikattavuusraportin käyttämällä `coverage html`-komennon sijaan komentoa `coverage xml`. Kyseinen komento muodostaa XML-muotoisen testikattavuusraportin. Lisätään GitHub Action -konfiguraatiomme loppuun kaksi uutta askelta:
+Saamme muodostettua Codecovin ymmärtämän testikattavuusraportin käyttämällä `coverage html`-komennon sijaan komentoa `coverage xml`. Kyseinen komento muodostaa XML-muotoisen testikattavuusraportin. Lisätään GitHub Action -konfiguraatiomme loppuun kaksi uutta askelta:
 
 ```yml
 - name: Coverage report
@@ -747,7 +747,7 @@ Tutustu riippuvuuksien injektointiin esimerkin avulla. Asenna projektin riippuvu
 
 ```python
 stats = StatisticsService(
-  PlayerReader("https://studies.cs.helsinki.fi/nhlstats/2021-22/players.txt")
+  PlayerReader("https://studies.cs.helsinki.fi/nhlstats/2022-23/players.txt")
 )
 ```
 
@@ -796,11 +796,14 @@ Kun injektoit `PlayerReaderStub`-olion testissä `StatisticsService`-oliolle, pa
 
 **Tämä tehtävä tehdään juuri luomaasi palautusrepositorioon, eli EI KÄYTETÄ ohtuvarasto-repositorioa mihin teit tehtävät 2-13**
 
-Muuta luokan `StatisticsService` metodia `top` siten, että sille voidaan antaa toinen parametri, joka määrittelee millä "parhausperustella" metodi palauttaa pelaajat.
+Muuta luokan `StatisticsService` metodia `top` siten, että sille voidaan antaa toinen parametri, joka määrittelee millä "parhausperusteella" metodi palauttaa pelaajat.
 
 Metodin toiminnallisuus selviää seuraavasta:
 
 ```python
+from statistics_service import StatisticsService, SortBy
+from player_reader import PlayerReader
+
 def main():
     stats = StatisticsService(
       PlayerReader("https://studies.cs.helsinki.fi/nhlstats/2021-22/players.txt")
@@ -838,6 +841,29 @@ class SortBy(Enum):
 ```
 
 Tee myös testit, jotka varmentavat metodin uuden version toiminnallisuuden. Jos StatisticsService-luokan käyttämä järjestämistapa näyttää vieraalta, Ohjelmointikurssin [materiaalissa](https://ohjelmointi-22.mooc.fi/osa-12/1-funktio-parametrina) avataan asiaa hieman tarkemmin.
+
+#### Miksi Enum?
+
+Miksi tehtävässä 17 halutaan että järjestämisen periaate ilmaistaan enumien avulla? Eikö ihan yhtä hyvin voitaisi ilmaista vaikkapa numeron avulla mikä haluttu järjestys on, eli kirjoittaa koodi seuraavasti:
+
+```python
+def main():
+    stats = StatisticsService(
+      PlayerReader("https://studies.cs.helsinki.fi/nhlstats/2021-22/players.txt")
+    )
+
+
+    # järjestetään pisteiden perusteella, parametrina oleva 1 määrää järjestyksen
+    for player in stats.top(10, 1):
+        print(player)
+
+    # järjestetään syöttöjen perusteella, parametrina oleva 3 määrää järjestyksen
+    print("Top by assists:")
+    for player in stats.top(10, 3):
+        print(player)
+```
+
+Periaatteessa tämä kyllä toimisi. Tälläistä tapaa kutsutaan [taikanumeroiden](https://stackoverflow.com/questions/47882/what-are-magic-numbers-and-why-do-some-consider-them-bad) käytöksi. Tapaa pidetään ohjelmoijien keskuudessa erittäin paheksuttavana. Alun perin koodin kirjoittanut muistaa ehkä hetken mitä taikanumerot ilmaisevat. Kun aikaa kuluu ja koodarit vaihtuvat alkaa asia kuitenkin hämärtymään ja on omiaan aiheuttamaan ikäviä bugeja. Tämän takia taikanumeroita tulee välttää, ja käyttää niiden sijaan esim. enumeita tai vaikkapa vakioita (eli muuttujia joiden arvoa ei muuteta).
 
 ### Tehtävien palautus
 
