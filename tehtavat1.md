@@ -418,7 +418,7 @@ jobs:
         run: poetry run coverage run --branch -m pytest
 ```
 
-Paina vihreää _Start commit_ -nappia, ja anna sopiva commit-viesti.
+Paina vihreää _Commit changes_ -nappia, ja anna sopiva commit-viesti.
 
 Konfiguraatiotiedosto (jonka nimi on oletusarvoisesti _main.yml_) tallettuu repositorioosi hakemiston _.github/workflows_ alle:
 
@@ -511,7 +511,7 @@ Viides askel on kaikkein tärkein, se suorittaa poetryn avulla projektin testit 
   run: poetry run coverage run --branch -m pytest
 ```
 
-Tee nyt koodiin muutos, joka hajottaa testit ja committaa muutos GitHubiin.
+Tee nyt koodiin muutos, joka hajottaa testit ja committaa ja pushaa muutos GitHubiin.
 
 Hetken kuluttua actions-välilehdellä pitäisi näkyä että commiteja on kaksi, ja että viimeisin on tilaltaan "punainen":
 
@@ -724,7 +724,7 @@ Kurssin ensimmäinen suunnittelumalli _riippuvuuksien injektointi_ (engl. depend
   - **Tämän jälkeen kannattaa kopioida projekti tehtävien 14-17 palautukseen käyttämäsi palautusrepositorion sisälle**
   - **HUOM** lue 15 cm ylempää miten koodi kannattaa organisoida palautusrepositorion sisälle
 
-Tutustu riippuvuuksien injektointiin esimerkin avulla. Asenna projektin riippuvuudet sen juurihakemistossa komennolla `poetry install`. Tämän jälkeen saat suoritettua koodin virtuaaliympäristön sisällä komennolla `python3 src/index.py`. Voit myös halutessasi suorittaa testit virtuaaliympäristön sisällä komennolla `pytest`. Jos unohtui miten virtuaaliympäristön sisälle päästään, kertaa asia tehtävästä 7...
+Tutustu riippuvuuksien injektointiin esimerkin avulla. Asenna projektin riippuvuudet sen juurihakemistossa (eli hakemistossa missä tiedosto _pyproject.toml_ sijaitsee) komennolla `poetry install`. Tämän jälkeen saat suoritettua koodin virtuaaliympäristön sisällä komennolla `python3 src/index.py`. Voit myös halutessasi suorittaa testit virtuaaliympäristön sisällä komennolla `pytest`. Jos unohtui miten virtuaaliympäristön sisälle päästään, kertaa asia tehtävästä 7...
 
 ### 15. Riippuvuuksien injektointi osa 2: NHL-tilastot
 
@@ -840,6 +840,8 @@ class SortBy(Enum):
     ASSISTS = 3
 ```
 
+Määrittele Enum tiedostossa statistics_service.py esim. ennen luokan StatisticsService määrittelyä.
+
 Tee myös testit, jotka varmentavat metodin uuden version toiminnallisuuden. Jos StatisticsService-luokan käyttämä järjestämistapa näyttää vieraalta, Ohjelmointikurssin [materiaalissa](https://ohjelmointi-22.mooc.fi/osa-12/1-funktio-parametrina) avataan asiaa hieman tarkemmin.
 
 #### Miksi Enum?
@@ -873,7 +875,11 @@ Palautusrepositorion pitäisi näyttää nyt suunnilleen seuraavalta
 
 ![]({{ "/images/lh1-31-22.png" | absolute_url }})
 
-Pushaa kaikki tekemäsi tehtävät (paitsi ne, joissa mainitaan, että tehtävää ei palauteta mihinkään) GitHubiin palautusrepositorioosi ja merkkaa tekemäsi tehtävät palautussovellukseen <{{site.stats_url}}>.
+Pushaa kaikki tekemäsi tehtävät (paitsi ne, joissa mainitaan, että tehtävää ei palauteta mihinkään) GitHubiin palautusrepositorioosi ja merkkaa tekemäsi tehtävät palautussovellukseen <{{site.stats_url}}>, välilehdelle _my submissions_.
 
 - Kerro palautussovelluksessa tehtävät 14-17 sisältävä repositoriosi.
 - Jos et tehnyt tehtäviä 14-17, voit laittaa linkin tehtävät 2-13 sisältävään ohtuvarasto-repositorioon.
+
+Palautuslomakkeen löydät painamalla sinistä nappia
+
+![]({{ "/images/lh1-palautus.png" | absolute_url }})
