@@ -29,7 +29,7 @@ Katso tarkempi ohje palautusrepositoriota koskien [täältä](/tehtavat1#teht%C3
 
 ### VS Coden konfigurointi
 
-Osaatko konfiguroida VS Coden oikein? Jos ei, lue [tämä](http://localhost:4000/tehtavat2/#bonus-vs-coden-konfigurointi)!
+Osaatko konfiguroida VS Coden oikein? Jos ei, lue [tämä](/tehtavat2/#bonus-vs-coden-konfigurointi)!
 
 ### 1. Tutustuminen Robot Frameworkkiin
 
@@ -113,7 +113,7 @@ Register With Valid Username And Long Enough Password Containing Only Letters
 ```
 
 - Käyttäjätunnuksen on oltava merkeistä a-z koostuva vähintään 3 merkin pituinen merkkijono, joka ei ole vielä käytössä. Vinkki: [säännölliset lausekkeet](https://www.tutorialspoint.com/python/python_reg_expressions.htm) ja <a href="https://regexr.com/5fslc">^[a-z]+$</a>.
-- Salasanan on oltava pituudeltaan vähintään 8 merkkiä ja se _ei saa_ koostua pelkästään kirjaimista. 
+- Salasanan on oltava pituudeltaan vähintään 8 merkkiä ja se _ei saa_ koostua pelkästään kirjaimista.
 - Säännöllisten lausekkeiden kokeilu ja testaaminen onnistuu hyvin esim. seuraavassa palvelussa <https://rubular.com/>
 
 Säännöllisissä lausekkeissa voi hyödyntää Pythonin _re_-moduulia seuraavasti:
@@ -234,7 +234,7 @@ Sovellus siis toimii _localhostilla_ eli paikallisella koneellasi _portissa_ 500
 
 Sovelluksen rakenne on suunnilleen sama kuin tehtävien 2 ja 3 ohjelmassa. Poikkeuksen muodostaa pääohjelma, joka sisältää selaimen tekemien HTTP-pyynntöjä käsittelevän koodin. Tässä vaiheessa ei ole tarpeen tuntea HTTP-pyyntöjä käsittelevää koodia kovin tarkasti. Katsotaan kuitenkin pintapuolisesti mistä on kysymys.
 
-Polulle "/" eli sovelluksen juureen, osoitteeseen <http://localhost:5001> tulevat pyynnöt käsittelee  seuraava koodinpätkä:
+Polulle "/" eli sovelluksen juureen, osoitteeseen <http://localhost:5001> tulevat pyynnöt käsittelee seuraava koodinpätkä:
 
 ```python
 @app.route("/")
@@ -287,6 +287,30 @@ Koodi tarkistaa käyttäjätunnuksen ja salasanan oikeellisuuden kutsumalla `Use
 
 **Tutustu nyt sovelluksen rakenteeseen ja toiminnallisuuteen.** Saat sammutettua sovelluksen painamalla komentoriviltä `ctrl+c` tai `ctrl+d`.
 
+#### Huomio Dockerin käyttäjille
+
+Jos olet käyttänyt [kontainerisoitua Poetryä](/poetry#poetry-ja-docker) joudut tekemään tässä osassa muutaman ekstratempun.
+
+Käytä imagen [mluukkai/poetry](https://hub.docker.com/repository/docker/mluukkai/poetry) sijaan imagea [mluukkai/poetry-robot](https://hub.docker.com/repository/docker/mluukkai/poetry-robot/). Image toimii ainoastaan intelin prosessoriarkkitehtuurilla varustetuilla koneilla, eli M1 käyttäjät joutuvat etsimään jonkun muun ratkaisun...
+
+Jotta kontissa suoritettu web-sovellus näkyisi isäntäkoneelle, tulee konttia käynnistettäessä julkaista kontin portti 5001 (missä sovellus toimii) isäntäkoneen porttiin. Tämä tapahtuu seuraavasti:
+
+```bash
+docker run -it -p 5001:5001 --volume="$PWD:/mydir" mluukkai/poetry-robot
+```
+
+Robot-testit suoritetaan menemällä komennolla `docker exec` samaan kontiin, missä sovellus on jo päällä: 
+
+```bash
+docker exec -it kontainerintunnistetahan bash
+```
+
+Kontainerin tunniste selviää komennolla `docker ps`.
+
+Testit toimivat valitettavasti ainoastaan ns. headless modessa, jonka saat päälle [tehtävän 7](/tehtavat3/#7-web-sovelluksen-testaaminen-osa-3) alussa neuvotulla tavalla.
+
+Testit on mahdollista saada toimimaan myös siten että testejä suorittava selain näytetään. Tämä vaatii kuitenkin erinäistä säätöä, googlaa jos kiinnostaa esim. hakusanoilla [linux docker gui apps](https://www.google.com/search?q=linux+docker+gui+apps).
+
 ### 5. Web-sovelluksen testaaminen osa 1
 
 Jatketaan siis saman sovelluksen parissa.
@@ -295,9 +319,11 @@ Jatketaan siis saman sovelluksen parissa.
 
 [Selenium WebDriver](http://docs.seleniumhq.org/projects/webdriver/) -kirjaston avulla on mahdollista simuloida selaimen käyttöä koodista käsin. Seleniumin käyttö Robot Framework -testeissä onnistuu valmiin, [SeleniumLibrary](https://robotframework.org/SeleniumLibrary/)-kirjaston avulla.
 
-Jotta selainta käyttävien testien suorittamien on mahdollista, täytyy lisäksi asentaa halutun selaimen ajuri. Projektin testit käyttävät Chrome- tai Chromium-selainta, jolla testejä voi suorittaa käyttämällä [ChromeDriver](https://chromedriver.chromium.org/)-ajuria. Ennen kuin siirrymme testien pariin, asenna ChromeDriver seuraamalla [tätä](../chromedriver_asennusohjeet) ohjetta.
+Jotta selainta käyttävien testien suorittamien on mahdollista, täytyy lisäksi asentaa halutun selaimen ajuri. Projektin testit käyttävät Chrome- tai Chromium-selainta, jolla testejä voi suorittaa käyttämällä [ChromeDriver](https://chromedriver.chromium.org/)-ajuria, tai Firefoxia jolloin testit voi suorittaa [Geckodriverillä](https://github.com/mozilla/geckodriver).
 
-Kun ChromeDriver on asennettu onnistuneesti, **avaa uusi terminaali-ikkuna** ja suorita projektin testit virtuaaliympäristössä komennolla `robot src/tests`. Huomaa, että web-sovelluksen tulee olla käynnissä toisessa terminaali-ikkunassa. Komennon pitäisi suorittaa onnistuneesti kaksi testitapausta, `Login With Correct Credentials` ja `Login With Incorrect Password`. Testitapausten suoritusta voi seurata aukeavasta Chrome-selaimen ikkunasta.
+**Ennen kuin siirryt testien pariin, asenna ChromeDriver** tai **Geckodriver** seuraamalla [tätä](../chromedriver_asennusohjeet) ohjetta.
+
+Kun ChromeDriver tai GeckoDriver on asennettu onnistuneesti, **avaa uusi terminaali-ikkuna** ja suorita projektin testit virtuaaliympäristössä komennolla `robot src/tests`. Huomaa, että web-sovelluksen tulee olla käynnissä toisessa terminaali-ikkunassa. Komennon pitäisi suorittaa onnistuneesti kaksi testitapausta, `Login With Correct Credentials` ja `Login With Incorrect Password`. Testitapausten suoritusta voi seurata aukeavasta selaimen ikkunasta.
 
 #### Ongelmia?
 
@@ -343,6 +369,7 @@ ${REGISTER_URL}  http://${SERVER}/register
 *** Keywords ***
 Open And Configure Browser
     ${options}  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys
+    Call Method    ${options}    add_argument    --no-sandbox
     # seuraava rivi on kommentoitu pois tässä vaiheessa
     # Call Method  ${options}  add_argument  --headless
     Open Browser  browser=chrome  options=${options}
@@ -366,9 +393,10 @@ Tiedostossa on myös ennestään tuntematon osio `*** Variables ***` missä on m
 
 - `Open And Configure Browser` -avainsana käynnistää selaimen käyttämällä SeleniumLibrary-kirjaston [Open Browser](https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Open%20Browser) -avainsanaa antaen `browser`-argumentin arvoksi käytetty selain eli _Chrome_, jolle annetaan myös toimintaa määrittelevä _options_ parametri, joka ei itseasiassa aluksi tee mitään.
 
-Lisäksi avainsana asettaa viiveeksi Selenium-komentojen välille `DELAY`-muuttujan arvon käyttämällä [Set Selenium Speed](https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Set%20Selenium%20Speed) -avainsanaa. Pidempi viive helpottaa testien suorituksen seuraamista.  Selaimen ikkunan koon voi asettaa tarvittaessa haluamakseen avainsanalla [Set Window Size](https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Set%20Window%20Size), nyt käytössä on oletusarvoinen selaimen koko.
+Lisäksi avainsana asettaa viiveeksi Selenium-komentojen välille `DELAY`-muuttujan arvon käyttämällä [Set Selenium Speed](https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Set%20Selenium%20Speed) -avainsanaa. Pidempi viive helpottaa testien suorituksen seuraamista. Selaimen ikkunan koon voi asettaa tarvittaessa haluamakseen avainsanalla [Set Window Size](https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Set%20Window%20Size), nyt käytössä on oletusarvoinen selaimen koko.
 
 Avainsanojen `Login Page Should Be Open` - ja `Main Page Should Be Open` tarkoitus on tarkistaa, että käyttäjä on oikealla sivulla. Ne käyttävät [Title Should Be](https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Title%20Should%20Be) -avainsanaa, joka tarkistaa HTML-sivun [title](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title)-elementin arvon. Title-elementin arvon sijaan voisimme esimerkiksi tarkistaa, että sivulta löytyy tietty teksti käyttämällä [Page Should Contain](https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Page%20Should%20Contain) -avainsanaa
+
 - `Go To Login Page` -avainsana käyttää [Go To](https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Go%20To) -avainsanaa avatakseen selaimessa kirjautumis-sivun, jonka URL on tallennettu `LOGIN_URL`-muuttujaan
 
 Tutustutaan seuraavaksi itse testitapauksiin avaamalla tiedosto _src/tests/login.robot_. Tiedoston `*** Settings ***`-osio on seuraava:
@@ -517,6 +545,7 @@ Headless Chrome saadaan käyttöön poistamalla avainsanan _Open And Configure B
 *** Keywords ***
 Open And Configure Browser
     ${options}  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys
+    Call Method    ${options}    add_argument    --no-sandbox
     Call Method  ${options}  add_argument  --headless
     Open Browser  browser=chrome  options=${options}
     Set Selenium Speed  ${DELAY}
@@ -596,7 +625,7 @@ while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:5001/ping)" != "2
 done
 
 # suoritetaan testit
-poetry run robot src/e2e
+poetry run robot src/tests
 
 status=$?
 

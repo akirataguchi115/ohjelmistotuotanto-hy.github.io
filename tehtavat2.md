@@ -109,7 +109,7 @@ Konfiguroinnin voi tehdä myös luomalla kyseisen sisältöisen tiedoston suoraa
 
 Ohjelmistokehittäjälle tulee usein vastaan tilanne, jossa pitäisi löytää tiettyyn käyttötarkoitukseen sopiva kirjasto. Harjoittelemme kyseistä tilannetta tässä tehtävässä.
 
-[TOML](https://toml.io/en/) on eräs helppolukuinen datan esitysformaatti, jota käytetään usein konfiguraatiotiedostoissa, kuten Poetryn _pyproject.toml_-tiedostossa. [Kurssirepositorion]({{site.python_exercise_repo_url}}) hakemistossa _viikko2/project-reader_ on pohja ohjelmalle, jonka tarkoituksena on lukea projektin tietoja annetusta osoitteesta löytyvästä _pyproject.toml_-tiedostosta.
+[TOML](https://toml.io/en/) on eräs helppolukuinen datan esitysformaatti, jota käytetään usein konfiguraatiotiedostoissa, kuten Poetryn _pyproject.toml_-tiedostossa. [Kurssirepositorion]({{site.python_exercise_repo_url}}) hakemistosta _viikko2/project-reader_ on pohja ohjelmalle, jonka tarkoituksena on lukea projektin tietoja annetusta osoitteesta löytyvästä _pyproject.toml_-tiedostosta.
 
 - **Kopioi aluksi projekti palautusrepositorioon hakemiston viikko2 sisälle.**
 
@@ -129,7 +129,9 @@ def get_project(self):
     return Project("Test name", "Test description", [], [])
 ```
 
-Tulosta jokainen välivaihe (tiedoston sisältö ja kirjaston avulla deserialisoitu sisältö) `print`-funktion avulla, jotta tiedät, minkä muotoista data on. Muodosta tämän jälkeen tiedoista `Project`-olio antamalla sille konstruktorin kautta projektin nimi, kuvaus, lista riippuvuuksista ja lista kehityksen aikaisista riippuvuuksista. Kun ohjelma toimii halutulla tavalla, voit poistaa debuggauksessa käytetyt tulostukset.
+Tulosta jokainen välivaihe (tiedoston sisältö ja kirjaston avulla deserialisoitu sisältö) `print`-funktion avulla, jotta tiedät, minkä muotoista data on. Toki voit käyttää samaan tarkoitukseen myös VS Coden [debuggeria](https://ohjelmointi-23.mooc.fi/osa-4/1-vscode#debuggeri).
+
+Muodosta tämän jälkeen tiedoista `Project`-olio antamalla sille konstruktorin kautta projektin nimi, kuvaus, lista riippuvuuksista ja lista kehityksen aikaisista riippuvuuksista. Kun ohjelma toimii halutulla tavalla, voit poistaa debuggauksessa käytetyt tulostukset.
 
 Ohjelman voi käynnistää virtuaaliympäristössä komennolla `python3 src/index.py`. Esimerkkinä käytetyn _pyproject.toml_-tiedoston tapauksessa ohjelman tulostuksen tulisi olla seuraava:
 
@@ -202,7 +204,7 @@ Helpoin tapa löytää sääntöjä on hakemalla sopivalla hakusanalla niitä do
 - Muuta koodiasi siten, että saat jokaisen määritellyistä pylint-säännöistä rikkoutumaan
 - Korjaa koodisi ja varmista, että se noudattaa kaikkia sääntöjä
 
-Usein _.pylintrc_-konfiguraatiota ei ole järkevää kirjoittaa tyhjästä käsin, vaan käytetään lähtökohtana pylintin suosittelemaa konfiguraatiota. Suoitellun konfiguraation voi tulostaa komentoriville komennolla `pylint --generate-rcfile`.
+Usein _.pylintrc_-konfiguraatiota ei ole järkevää kirjoittaa tyhjästä käsin, vaan käytetään lähtökohtana pylintin suosittelemaa konfiguraatiota. Suositellun konfiguraation voi tulostaa komentoriville komennolla `pylint --generate-rcfile`.
 
 ### 4. Koodin staattinen analyysi ja GitHub Actionit
 
@@ -580,7 +582,7 @@ Mene jälleen **toiseen klooniin**:
 ```
 
 - Komennon tulosteesta selviää, että main ja haara1 ovat konfiguroitu toimimaan suoraan `git pull` ja `git push` -komennoilla
-- Tee toiseen lokaaliin klooniin GitHubissa olevan projektisi branchia **haara2** träkkäävä branch
+- Tee nyt kyseiseen klooniin (jossa siis olet nyt) myös branchia **haara2** träkkäävä branch
   - **Huom:** haaralle kannattaa myös tehdä heti `git pull`, sillä muuten lokaalin haaran tila on sama kuin sillä etärepositorion haaran tila sillä hetkellä kun kloonasit repositorion, eli vanhentunut koska haaraan on pushattu uutta sisältöä
 - Suorita jälleen `git remote show origin`, mitä muutoksia huomaat?
 - Tee branchiin **haara2** muutoksia ja pushaa ne GitHubiin
@@ -627,7 +629,7 @@ Jos kiinnostaa, lue lisää yllä olevasta dokumentista.
 
 ### 9. Git: epäajantasaisen kloonin pushaaminen [versionhallinta]
 
-Demonstroidaan vielä (viime viikon [tehtävässä 11](tehtavat1#11-github-actions-osa-3) mainittu) usein esiintyvä tilanne, missä epäajantasaisen repositorion pushaaminen GitHubissa olevaan etärepositorioon epäonnistuu.
+Demonstroidaan vielä (viime viikon [tehtävässä 11](/tehtavat1#11-github-actions-osa-3) mainittu) usein esiintyvä tilanne, missä epäajantasaisen repositorion pushaaminen GitHubissa olevaan etärepositorioon epäonnistuu.
 
 - Mene alkuperäisen repositorion paikallisen kloonin **main**-haaraan, tee jokin muutos, commitoi ja pushaa se GitHubiin
 - Mene toisen kloonin **main**-haaraan ja tee sinne jokin muutos
@@ -685,9 +687,9 @@ Hae [kurssirepositorion]({{site.python_exercise_repo_url}}) hakemistossa _viikko
 
 Tehdään ohjelma, jonka avulla voi hakea jääkiekon [NHL-liigan](https://nhl.com) eri kausien tilastotietoja.
 
-Näet tilastojen [JSON](https://en.wikipedia.org/wiki/JSON)-muotoisen raakadatan web-selaimella osoitteesta <https://studies.cs.helsinki.fi/nhlstats/2021-22/players>
+Näet tilastojen [JSON](https://en.wikipedia.org/wiki/JSON)-muotoisen raakadatan web-selaimella osoitteesta <https://studies.cs.helsinki.fi/nhlstats/2022-23/players>
 
-Tee ohjelma, joka listaa _suomalaisten pelaajien_ tilastot. Tarvitset ohjelmassa yhtä kirjastoa, eli riippuvuutta. Kyseinen kirjasto on [requests](https://requests.readthedocs.io/en/main/)-kirjasto, jonka avulla voi tehdä HTTP-pyyntöjä. Huomaa, että Pythonilla on myös valmiita moduleeja tähän tarkoitukseen, mutta requests-kirjaston käyttö on huomattavasti näitä moduuleja helpompaa.
+Tee ohjelma, joka listaa _suomalaisten pelaajien_ tilastot. Tarvitset ohjelmassa yhtä kirjastoa, eli riippuvuutta. Kyseinen kirjasto on [requests](https://requests.readthedocs.io/en/main/)-kirjasto, jonka avulla voi tehdä HTTP-pyyntöjä. Huomaa, että Pythonilla on myös valmiita moduuleja tähän tarkoitukseen, mutta requests-kirjaston käyttö on huomattavasti näitä moduuleja helpompaa.
 
 Asenna siis _requests_-kirjasto projektin riippuvuuksiksi. Käytä kirjastosta uusinta versiota (jonka Poetry asentaa automaattisesti).
 
