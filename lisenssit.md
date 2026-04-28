@@ -59,7 +59,7 @@ Mitä lisenssiä Visual Studio Code käyttää: [https://github.com/microsoft/vs
 
 Seuraavaksi harjoitellaan lisenssin valintaa ohtun miniprojektia varten.
 
-Haluan, että miniprojektini lähdekoodia voidaan käyttää miten vain, kunhan mainita alkuperäisen luojan. Valitsen 
+Haluan, että miniprojektini lähdekoodia voidaan käyttää miten vain, kunhan mainitaan alkuperäinen luoja. Valitsen
 
 <ol type="a">
   <li>MIT-lisenssi</li>
