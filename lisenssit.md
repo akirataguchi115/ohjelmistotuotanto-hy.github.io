@@ -9,7 +9,7 @@ Tässä osassa ollaan käsitelty ohjelmiston suunnittelua ja toteutusta. Seuraav
 
 Osan on kirjoittanut [Akira Taguchi](https://github.com/lambdakilo/).
 
-Kuvitellaan, että teet Ohjelmistotuotannon miniprojektiksi graafisen laskimen. Julkaiset lähdekoodisi GitHubiin, ja joku ottaa sinuun yhteyttä. Yhteydenottaja kehuu teosta ja haluaisi ottaa tämän käyttöön oletuslaskimena kehittämässään käyttöjärjestelmäjakelussaan, Cubblissa. Yhteydenottaja kuitenkin kertoo, ettei tämä onnistu ennen kuin olet lisensöinyt ohjelmasi sopivalla lisenssillä. Mitä teet?
+Kuvitellaan, että teet ohtun miniprojektiksi graafisen laskimen. Julkaiset lähdekoodisi GitHubiin, ja joku ottaa sinuun yhteyttä. Yhteydenottaja kehuu teosta ja haluaisi ottaa tämän käyttöön oletuslaskimena kehittämässään käyttöjärjestelmäjakelussaan, Cubblissa. Yhteydenottaja kuitenkin kertoo, ettei tämä onnistu ennen kuin olet lisensöinyt ohjelmasi sopivalla lisenssillä. Mitä teet?
 
 ### Ohjelmistolisenssien perusteet
 Ohjelmistolisenssi on lainopillinen väline, joka säätelee ohjelmiston käyttöä ja jakelua. Ohjelmistokehittäjillä tämä usein ilmenee LICENSE-tiedoston julkaisemista lähdekoodin mukana. Tämän LICENSE-tiedoston sisältö määrää valitun ohjelmistolisenssin. Esimerkki Poetryn ohjelmistolisenssistä: [https://github.com/python-poetry/poetry/blob/master/LICENSE](https://github.com/python-poetry/poetry/blob/master/LICENSE).
