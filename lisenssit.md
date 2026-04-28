@@ -97,4 +97,4 @@ Vapaa ohjelmisto ja avoin lähdekoodi menevät monilla usein sekaisin. [Wikipedi
 
 ### Loppusanat lisensseistä
 
-Nyt osaat toivottavasti lisenssöidä ohtun miniprojektisi sekä tulevat ohjelmistoprojektisi. Ohjelmistolisenssit ovat kuitenkin pitkälti lakijargonia, ja joskus löytää itsensä tilanteesta jolloin tarvitaan juristia. Älä kuitenkaan pelästy. [Lähtökohtaisesti kaikki lisenssöintivirheet selviävät ensisijaisesti puhumalla](https://opensource.stackexchange.com/questions/5699/has-the-mit-license-been-battle-tested-in-court). Mikäli jotain jäi epäselväksi, lähetä kysymykset Akira Taguchin alumnisähköpostiin tai kysy apua assareilta.
+Nyt osaat toivottavasti lisenssöidä ohtun miniprojektisi sekä tulevat ohjelmistoprojektisi. Ohjelmistolisenssit ovat kuitenkin pitkälti lakijargonia, ja joskus löytää itsensä tilanteesta, jolloin tarvitaan juristia. Älä kuitenkaan pelästy. [Lähtökohtaisesti kaikki lisenssöintivirheet selviävät ensisijaisesti puhumalla](https://opensource.stackexchange.com/questions/5699/has-the-mit-license-been-battle-tested-in-court). Mikäli jotain jäi epäselväksi, lähetä kysymykset Akira Taguchin alumnisähköpostiin tai kysy apua assareilta.
