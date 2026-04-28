@@ -70,7 +70,7 @@ Haluan, että miniprojektini lähdekoodia voidaan käyttää miten vain, kunhan 
 	<summary>
 		Vastaus
 	</summary>
-	b. MIT-lisenssi
+	a. MIT-lisenssi
 </details>
 
 <br>
